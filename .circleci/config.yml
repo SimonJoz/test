@@ -13,6 +13,7 @@ jobs:
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
+      - checkout
       - run:
           name: "Build"
           command: "mvn clean package -DskipTests"
@@ -20,6 +21,7 @@ jobs:
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
+      - checkout
       - run:
           name: "Tests"
           command: "mvn test"
