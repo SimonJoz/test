@@ -17,11 +17,6 @@ jobs:
       - run:
           name: "Build"
           command: "mvn clean package -DskipTests"
-  test:
-    docker:
-      - image: maven:3-eclipse-temurin-11
-    steps:
-      - checkout
       - run:
           name: "Tests"
           command: "mvn test"
@@ -31,4 +26,4 @@ workflows:
     jobs:
       - say-hello
       - build
-      - test
+
