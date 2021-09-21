@@ -28,7 +28,6 @@ jobs:
 
 workflows:
   my-workflow:
-
     jobs:
       - say-hello
       - build:
