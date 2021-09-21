@@ -10,9 +10,6 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
   build:
-    filters:
-      branches:
-        only: master
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
@@ -21,9 +18,6 @@ jobs:
           name: "Build"
           command: "mvn clean package -DskipTests"
   tests:
-    filters:
-      branches:
-        only: master
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
@@ -37,8 +31,18 @@ workflows:
 
     jobs:
       - say-hello
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
       - tests:
-          requires:
-            - build
+          filters:
+            branches:
+              ignore:
+                - develop
+                - feature/.*
+#      - tests:
+#
+#          requires:
+#            - build
 
