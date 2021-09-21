@@ -12,9 +12,7 @@ jobs:
   build:
     filters:
       branches:
-        ignore:
-          - develop
-          - feature/.*
+        only: master
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
@@ -25,9 +23,7 @@ jobs:
   tests:
     filters:
       branches:
-        ignore:
-          - develop
-          - feature/.*
+        only: master
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
