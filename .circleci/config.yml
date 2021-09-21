@@ -38,7 +38,7 @@ workflows:
       - tests:
           filters:
             branches:
-              ignore: /^feature.*
+              only: master
 #      - tests:
 #
 #          requires:
