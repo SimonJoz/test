@@ -13,22 +13,16 @@ jobs:
     docker:
       - image: maven:3.8.2-eclipse-temurin-11
     steps:
-      - checkout
       - run:
           name: "Build"
           command: "mvn clean package -DskipTests"
-  test:
-    docker:
-      - image: maven:3.8.2-eclipse-temurin-11
-    steps:
-      - checkout
       - run:
           name: "Tests"
           command: "mvn test"
+
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
       - build
-      - test
