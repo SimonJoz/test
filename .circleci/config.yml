@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Build"
           command: "mvn clean package -DskipTests"
-   tests:
+  tests:
     docker:
       - image: maven:3-eclipse-temurin-11
     steps:
