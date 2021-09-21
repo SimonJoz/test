@@ -38,8 +38,7 @@ workflows:
       - tests:
           filters:
             branches:
-              ignore:
-                - /^feature.*
+              ignore: /^feature.*
 #      - tests:
 #
 #          requires:
