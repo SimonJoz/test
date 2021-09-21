@@ -18,6 +18,6 @@ class DemoApplicationTests {
 
     @Test
     void testHelloSuccess() {
-        assertEquals("Hello1", demoApplication.hello());
+        assertEquals("Hello", demoApplication.hello());
     }
 }

@@ -11,15 +11,15 @@ jobs:
           command: "echo Hello, World!"
   build:
     docker:
-      - image: cimg/base:stable
+      - image: maven:3-eclipse-temurin-11
     steps:
       - checkout
       - run:
           name: "Build"
           command: "mvn package -DskipTests"
-  test:
+  tests:
     docker:
-      - image: cimg/base:stable
+      - image: maven:3-eclipse-temurin-11
     steps:
       - checkout
       - run:
@@ -27,8 +27,21 @@ jobs:
           command: "mvn test"
 
 workflows:
-  say-hello-workflow:
+  my-workflow:
+
     jobs:
       - say-hello
-      - build
-      - test
+      - build:
+          filters:
+            branches:
+              only: master
+      - tests:
+          filters:
+            branches:
+              only: master
+
+#      - tests:
+#
+#          requires:
+#            - build
+
