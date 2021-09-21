@@ -39,8 +39,7 @@ workflows:
           filters:
             branches:
               ignore:
-                - develop
-                - /feature-.*
+                - feature.*
 #      - tests:
 #
 #          requires:
